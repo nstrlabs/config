@@ -1,6 +1,7 @@
 version = '2'
 linters.enable = ["gosec"]
 
+# Muted findings tracked in https://jira.cs.sys/browse/ONUM-34140
 [linters.settings.gosec]
 excludes = ["G115", "G302", "G304"]
 
