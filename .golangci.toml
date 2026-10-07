@@ -1,0 +1,37 @@
+version = '2'
+linters.enable = ["gosec"]
+
+# Muted findings tracked in https://jira.cs.sys/browse/ONUM-34140
+[linters.settings.gosec]
+excludes = ["G115", "G302", "G304"]
+
+[linters.exclusions]
+
+[[linters.exclusions.rules]]
+path = "_test.go"
+linters = ["gosec"]
+
+[[linters.exclusions.rules]]
+path = "_test.go"
+linters = ["govet"]
+
+[[linters.exclusions.rules]]
+path = "_test.go"
+linters = ["ineffassign"]
+
+[[linters.exclusions.rules]]
+path = "_test.go"
+linters = ["staticcheck"]
+text = "SA4006:"          # ineffective assignment (test scaffolding)
+
+[[linters.exclusions.rules]]
+linters = ["staticcheck"]
+text = "QF1008:"          # could remove embedded field from selector
+
+[[linters.exclusions.rules]]
+linters = ["errcheck"]
+text = ".Close"           # defer Close return values
+
+[[linters.exclusions.rules]]
+linters = ["unused"]
+text = "defaultValueTag"
